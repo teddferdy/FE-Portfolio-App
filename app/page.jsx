@@ -10,6 +10,7 @@ import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 import { Fragment } from "react";
 import Header from "@/components/Header";
+import ImageMe from "@/assets/img/me.jpg";
 
 // Service
 import { title } from "@/service/home";
@@ -75,7 +76,8 @@ export default function Home() {
               </div>
             </div>
             <div className="order-1 xl:order-none mb-8 xl:mb-0">
-              <Photo src={titleHome?.data?.data?.photo || ""} />
+              {/* <Photo src={titleHome?.data?.data?.photo || ""} /> */}
+              <Photo src={ImageMe} />
             </div>
           </div>
         </div>

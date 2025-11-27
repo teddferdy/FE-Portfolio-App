@@ -33,11 +33,34 @@
 import { axiosInstance } from ".";
 
 export const getListService = async () => {
-  const { data, status } = await axiosInstance.get(
-    `/service/get-service?isTable=false`
-  );
+  // const { data, status } = await axiosInstance.get(
+  //   `/service/get-service?isTable=false`
+  // );
 
-  if (status !== 200) throw Error(`${data.message}`);
+  // if (status !== 200) throw Error(`${data.message}`);
+  // return data;
+
+  const data = {
+    status: "200",
+    data: [
+      {
+        name: "FE Developer",
+        description:
+          "Specialized in building fast, responsive, and user-friendly interfaces using modern technologies such as React.js, Next.js, and Tailwind CSS.",
+      },
+      {
+        name: "BE Developer",
+        description:
+          "Experienced in developing secure and scalable server logic, API integrations, and database management using Node.js, Express.js, PostgreSQL, or MongoDB.",
+      },
+      {
+        name: "Wordpress Developer",
+        description:
+          "Creating and managing WordPress-based websites, including theme customization, plugin development, performance optimization, and SEO configuration.",
+      },
+    ],
+  };
+
   return data;
 };
 
