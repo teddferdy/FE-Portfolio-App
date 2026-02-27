@@ -35,14 +35,12 @@ const Work = () => {
 
   const handleSlideChnage = (swiper) => {
     const currentIndex = swiper.activeIndex;
-    setProject(getWorkData?.data?.data[currentIndex]);
+    setProject(getWorkData?.data[currentIndex]);
   };
 
   useEffect(() => {
     if (getWorkData?.data && getWorkData?.isSuccess) {
-      setProject(
-        getWorkData?.data?.data?.length > 0 ? getWorkData?.data?.data[0] : {}
-      );
+      setProject(getWorkData?.data?.length > 0 ? getWorkData?.data[0] : {});
     }
   }, [getWorkData.data, getWorkData?.isSuccess]);
 
@@ -64,7 +62,7 @@ const Work = () => {
         className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
       >
         <div className="container mx-auto">
-          {getWorkData?.data?.data?.length > 0 ? (
+          {getWorkData?.data?.length > 0 ? (
             <div className="flex flex-col xl:flex-row xl:gap-[30px]">
               <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
                 <div className="flex flex-col gap-[30px]">
@@ -106,24 +104,22 @@ const Work = () => {
                       </TooltipProvider>
                     </Link>
                     {project?.github
-                      ? JSON?.parse(project?.github || "").map(
-                          (items, index) => {
-                            return (
-                              <Link href={items.url || ""} key={index}>
-                                <TooltipProvider delayDuration={100}>
-                                  <Tooltip>
-                                    <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                      <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                      <p>Github Repo {items.name}</p>
-                                    </TooltipContent>
-                                  </Tooltip>
-                                </TooltipProvider>
-                              </Link>
-                            );
-                          }
-                        )
+                      ? project?.github?.map((items, index) => {
+                          return (
+                            <Link href={items.url || ""} key={index}>
+                              <TooltipProvider delayDuration={100}>
+                                <Tooltip>
+                                  <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                                    <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                                  </TooltipTrigger>
+                                  <TooltipContent>
+                                    <p>Github Repo {items.name}</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                              </TooltipProvider>
+                            </Link>
+                          );
+                        })
                       : null}
                   </div>
                 </div>
@@ -135,7 +131,7 @@ const Work = () => {
                   className="xl:h-[520px] mb-12"
                   onSlideChange={handleSlideChnage}
                 >
-                  {getWorkData?.data?.data?.map((items, index) => {
+                  {getWorkData?.data?.map((items, index) => {
                     return (
                       <SwiperSlide key={index} className="w-full">
                         <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20 rounded-lg">

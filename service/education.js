@@ -3,25 +3,29 @@ import { data } from "@/utils/majorList";
 import { formatText } from "@/utils/formatTextFirstLetterUpper";
 
 export const getListEducation = async () => {
-  const { data, status } = await axiosInstance.get(
-    `/education/get-education?isTable=false`
-  );
+  // const { data, status } = await axiosInstance.get(
+  //   `/education/get-education?isTable=false`
+  // );
 
-  if (status !== 200) throw Error(`${data.message}`);
-  return data;
+  // if (status !== 200) throw Error(`${data.message}`);
+  // return data;
 
-  // const data = [
-  //   {
-  //     institution: "A",
-  //     degree: "Frontend Developer",
-  //     duration: "2021 - Present",
-  //   },
-  //   {
-  //     institution: "B",
-  //     degree: "Frontend Developer",
-  //     duration: "2021 - Present",
-  //   },
-  // ];
+  const data = [
+    {
+      duration: "3 Years",
+      institution: "Akademi Teknologi Warga Surakarta",
+      degree: "Diploma of Engineering, Major In Mechanical Engineering",
+      startDate: "Aug 2016",
+      endDate: "Nov 2019",
+    },
+    {
+      duration: "3 Months",
+      institution: "Glints Academy",
+      degree: "Front-end Developer Bootcamp",
+      startDate: "Nov 2020",
+      endDate: "May 2021",
+    },
+  ];
 
   return data;
 };
@@ -29,7 +33,7 @@ export const getListEducation = async () => {
 // Get List Education In Table
 export const getListTableEducation = async ({ page, limit }) => {
   const { data, status } = await axiosInstance.get(
-    `/education/get-education?isTable=true&page=${page}&limit=${limit}`
+    `/education/get-education?isTable=true&page=${page}&limit=${limit}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -39,7 +43,7 @@ export const getListTableEducation = async ({ page, limit }) => {
 // Get By Id
 export const getEducationById = async (payload) => {
   const { data, status } = await axiosInstance.get(
-    `/education/get-education/${payload.id}`
+    `/education/get-education/${payload.id}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -50,7 +54,7 @@ export const getEducationById = async (payload) => {
 export const postEducation = async (payload) => {
   const { data, status } = await axiosInstance.post(
     "/education/add-education",
-    payload
+    payload,
   );
 
   if (status !== 200 && status !== 201) throw Error(`${data.message}`);
@@ -60,7 +64,7 @@ export const postEducation = async (payload) => {
 export const putEducation = async ({ id, body }) => {
   const { data, status } = await axiosInstance.put(
     `/education/edit-education/${id}`,
-    body
+    body,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -69,7 +73,7 @@ export const putEducation = async ({ id, body }) => {
 
 export const deleteEducation = async ({ id }) => {
   const { data, status } = await axiosInstance.delete(
-    `/education/delete-education/${id}`
+    `/education/delete-education/${id}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);

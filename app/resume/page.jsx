@@ -145,7 +145,7 @@ const Resume = () => {
 
     if (
       getListExperienceData?.data &&
-      getListExperienceData?.data?.data?.length > 0
+      getListExperienceData?.data?.length > 0
     ) {
       return (
         <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -155,7 +155,7 @@ const Resume = () => {
           </p>
           <div className="h-[400px]">
             <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-              {getListExperienceData?.data?.data
+              {getListExperienceData?.data
                 ?.sort((a, b) => b.id - a.id)
                 .map((items, index) => (
                   <li
@@ -220,10 +220,7 @@ const Resume = () => {
       );
     }
 
-    if (
-      getListEducationData?.data &&
-      getListEducationData?.data?.data?.length > 0
-    ) {
+    if (getListEducationData?.data && getListEducationData?.data?.length > 0) {
       return (
         <div className="flex flex-col gap-[30px] text-center xl:text-left">
           <h3 className="text-4xl font-bold">{education.title}</h3>
@@ -232,7 +229,7 @@ const Resume = () => {
           </p>
           <div className="h-[400px]">
             <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-              {getListEducationData?.data?.data?.map((items, index) => {
+              {getListEducationData?.data?.map((items, index) => {
                 return (
                   <li
                     key={index}
@@ -294,7 +291,7 @@ const Resume = () => {
       );
     }
 
-    if (getListSkillData?.data && getListSkillData?.data?.data?.length > 0) {
+    if (getListSkillData?.data && getListSkillData?.data?.length > 0) {
       return (
         <div className="flex flex-col gap-[30px] text-center xl:text-left">
           <div className="flex flex-col gap-[30px]">
@@ -306,7 +303,7 @@ const Resume = () => {
 
           <div className="h-[400px]">
             <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px] gap-4">
-              {getListSkillData?.data?.data?.map((items, index) => {
+              {getListSkillData?.data?.map((items, index) => {
                 return (
                   <li key={index}>
                     <TooltipProvider delayDuration={100}>
@@ -373,41 +370,41 @@ const Resume = () => {
             {aboutMe.description}
           </p>
           <div className="h-[400px]">
-            <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 gap-x-6 max-w-[620px] mx-auto xl:mx-0">
+            <ul className="grid grid-cols-1 xl:grid-cols-1 gap-y-6 gap-x-6 max-w-[620px] mx-auto xl:mx-0">
               <li className="flex items-center justify-center xl:justify-start gap-4">
                 <span className="text-white/60">Name</span>
                 <span className="text-xl">
-                  {getListAboutMeData?.data?.data?.name}
+                  {getListAboutMeData?.data?.name}
                 </span>
               </li>
               <li className="flex items-center justify-center xl:justify-start gap-4">
                 <span className="text-white/60">Phone</span>
                 <span className="text-xl">
-                  {getListAboutMeData?.data?.data?.phoneNumber}
+                  {getListAboutMeData?.data?.phoneNumber}
                 </span>
               </li>
               <li className="flex items-center justify-center xl:justify-start gap-4">
                 <span className="text-white/60">Experience</span>
                 <span className="text-xl">
-                  {getListAboutMeData?.data?.data?.experience}
+                  {getListAboutMeData?.data?.experience}
                 </span>
               </li>
               <li className="flex items-center justify-center xl:justify-start gap-4">
                 <span className="text-white/60">Nationality</span>
                 <span className="text-xl">
-                  {getListAboutMeData?.data?.data?.nationality}
+                  {getListAboutMeData?.data?.nationality}
                 </span>
               </li>
               <li className="flex items-center justify-center xl:justify-start gap-4">
                 <span className="text-white/60">Email</span>
                 <span className="text-xl">
-                  {getListAboutMeData?.data?.data?.email}
+                  {getListAboutMeData?.data?.email}
                 </span>
               </li>
               <li className="flex items-center justify-center xl:justify-start gap-4">
                 <span className="text-white/60">Freelance</span>
                 <span className="text-xl">
-                  {getListAboutMeData?.data?.data?.freelance
+                  {getListAboutMeData?.data?.freelance
                     ? "Available"
                     : "Not Available"}
                 </span>
@@ -415,16 +412,16 @@ const Resume = () => {
               <li className="flex items-center justify-center xl:justify-start gap-4">
                 <span className="text-white/60">Languages</span>
                 <span className="text-xl">
-                  {getListAboutMeData?.data?.data?.languages.length > 0
-                    ? getListAboutMeData?.data?.data?.languages.map(
+                  {getListAboutMeData?.data?.languages.length > 0
+                    ? getListAboutMeData?.data?.languages.map(
                         (items, index) => (
                           <span key={index}>
                             {index !==
-                            getListAboutMeData?.data?.data?.languages.length - 1
+                            getListAboutMeData?.data?.languages.length - 1
                               ? `${items}, `
                               : items}
                           </span>
-                        )
+                        ),
                       )
                     : "-"}
                 </span>

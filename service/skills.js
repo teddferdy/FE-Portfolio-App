@@ -1,17 +1,65 @@
 import { axiosInstance } from ".";
 
 export const getListSkills = async () => {
-  const { data, status } = await axiosInstance.get(
-    `/skills/get-skills?isTable=false`
-  );
+  // const { data, status } = await axiosInstance.get(
+  //   `/skills/get-skills?isTable=false`
+  // );
 
-  if (status !== 200) throw Error(`${data.message}`);
+  // if (status !== 200) throw Error(`${data.message}`);
+  // return data;
+
+  const data = [
+    {
+      name: "HTML 5",
+    },
+    {
+      name: "CSS 3",
+    },
+    {
+      name: "JavaScript",
+    },
+    {
+      name: "React Js",
+    },
+    {
+      name: "Next JS",
+    },
+    { name: "Node JS" },
+    {
+      name: "Express JS",
+    },
+    {
+      name: "Tailwind",
+    },
+    {
+      name: "TypeScript",
+    },
+    {
+      name: "Github",
+    },
+    {
+      name: "Material UI",
+    },
+    {
+      name: "Vue JS",
+    },
+    {
+      name: "Vuetify",
+    },
+    {
+      name: "Postgresql",
+    },
+    {
+      name: "Sequelize",
+    },
+  ];
+
   return data;
 };
 
 export const getListSkilsInputWork = async () => {
   const { data, status } = await axiosInstance.get(
-    `/skills/get-skills?isTable=false`
+    `/skills/get-skills?isTable=false`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -29,7 +77,7 @@ export const getListSkilsInputWork = async () => {
 // Get List skills In Table
 export const getListTableSkills = async ({ page, limit }) => {
   const { data, status } = await axiosInstance.get(
-    `/skills/get-skills?isTable=true&page=${page}&limit=${limit}`
+    `/skills/get-skills?isTable=true&page=${page}&limit=${limit}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -39,7 +87,7 @@ export const getListTableSkills = async ({ page, limit }) => {
 // Get By Id
 export const getSkillsById = async (payload) => {
   const { data, status } = await axiosInstance.get(
-    `/skills/get-skills/${payload.id}`
+    `/skills/get-skills/${payload.id}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -50,7 +98,7 @@ export const getSkillsById = async (payload) => {
 export const postSkills = async (payload) => {
   const { data, status } = await axiosInstance.post(
     "/skills/add-skills",
-    payload
+    payload,
   );
 
   if (status !== 200 && status !== 201) throw Error(`${data.message}`);
@@ -60,7 +108,7 @@ export const postSkills = async (payload) => {
 export const putSkills = async ({ id, body }) => {
   const { data, status } = await axiosInstance.put(
     `/skills/edit-skills/${id}`,
-    body
+    body,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -69,7 +117,7 @@ export const putSkills = async ({ id, body }) => {
 
 export const deleteSkills = async ({ id }) => {
   const { data, status } = await axiosInstance.delete(
-    `/skills/delete-skills/${id}`
+    `/skills/delete-skills/${id}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
