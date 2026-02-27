@@ -3,9 +3,21 @@ const config = { headers: { "Content-Type": "multipart/form-data" } };
 
 // Get About Me
 export const getListAboutMe = async () => {
-  const { data, status } = await axiosInstance.get("/about-me/get-about-me");
+  // const { data, status } = await axiosInstance.get("/about-me/get-about-me");
 
-  if (status !== 200) throw Error(`${data.message}`);
+  // if (status !== 200) throw Error(`${data.message}`);
+  // return data;
+
+  const data = {
+    name: "Teddy Ferdian Abrar Amrullah",
+    phoneNumber: "085926051064",
+    experience: `${new Date().getFullYear() - 2021} Years`,
+    nationality: "Indonesia",
+    email: "teddy.ferdy@gmail.com",
+    freelance: false,
+    languages: ["Indonesia", "English"],
+  };
+
   return data;
 };
 
@@ -14,7 +26,7 @@ export const postAboutMe = async (payload) => {
   const { data, status } = await axiosInstance.post(
     "/about-me/add-about-me",
     payload,
-    config
+    config,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -25,7 +37,7 @@ export const postAboutMe = async (payload) => {
 export const putAboutMe = async ({ id, body }) => {
   const { data, status } = await axiosInstance.put(
     `/about-me/edit-about-me/${id}`,
-    body
+    body,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
