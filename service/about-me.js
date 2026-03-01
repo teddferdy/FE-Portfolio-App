@@ -1,6 +1,8 @@
 import { axiosInstance } from ".";
 const config = { headers: { "Content-Type": "multipart/form-data" } };
 
+import { getDataProfile } from "@/lib/data-dummy";
+
 // Get About Me
 export const getListAboutMe = async () => {
   // const { data, status } = await axiosInstance.get("/about-me/get-about-me");
@@ -8,15 +10,7 @@ export const getListAboutMe = async () => {
   // if (status !== 200) throw Error(`${data.message}`);
   // return data;
 
-  const data = {
-    name: "Teddy Ferdian Abrar Amrullah",
-    phoneNumber: "085926051064",
-    experience: `${new Date().getFullYear() - 2021} Years`,
-    nationality: "Indonesia",
-    email: "teddy.ferdy@gmail.com",
-    freelance: false,
-    languages: ["Indonesia", "English"],
-  };
+  const data = getDataProfile;
 
   return data;
 };

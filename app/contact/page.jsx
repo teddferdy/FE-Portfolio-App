@@ -97,7 +97,7 @@ const Contact = () => {
     setActive(true, null);
     const formElement = document.querySelector("form");
     emailjs
-      .sendForm("service_blhs3nq", "template_b74phwa", formElement, {
+      .sendForm("service_jciernm", "template_b74phwa", formElement, {
         publicKey: "69-1dTBFPi2AH0Tcm",
       })
       .then(
@@ -105,7 +105,7 @@ const Contact = () => {
           setTimeout(() => {
             toast({
               variant: "success",
-              title: "Success Add New About Me!",
+              title: "Success Sent Email!",
             });
           }, 1000);
           setTimeout(() => {
@@ -150,7 +150,7 @@ const Contact = () => {
             {/* Form */}
             <div className="flex flex-1 flex-col gap-6 order-1 xl:order-none w-full">
               <h3 className="text-4xl text-accent">Let's Work Together</h3>
-              <p className="text-white/60">lorem</p>
+              {/* <p className="text-white/60">lorem</p> */}
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(sendEmail)}

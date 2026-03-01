@@ -1,3 +1,4 @@
+import { getDataExperience } from "@/lib/data-dummy";
 import { axiosInstance } from ".";
 
 // Get List Experience In Table
@@ -19,32 +20,7 @@ export const getListExperience = async () => {
   // if (status !== 200) throw Error(`${data.message}`);
   // return data;
 
-  const data = [
-    {
-      company: "PT. Infosys Solusi Terpadu",
-      position: "FRONTEND DEVELOPER (Web & Mobile)",
-      startDate: "Dec 2021",
-      endDate: "Present",
-    },
-    {
-      company: "PT. Bixbox Teknologi Perkasa (Refactory.id)",
-      position: "FRONTEND DEVELOPER (Web & Mobile )",
-      startDate: "Sep 2021",
-      endDate: "Dec 2021",
-    },
-    {
-      company: "PT. Majapahit (BKPM)",
-      position: "FRONTEND DEVELOPER (Vue.js)",
-      startDate: "Apr 2021",
-      endDate: "Aug 2021",
-    },
-    {
-      company: "Rachacha Indonesia Company",
-      position: "FULL STACK PHP INTERN",
-      startDate: "Oct 2020",
-      endDate: "Nov 2020",
-    },
-  ];
+  const data = getDataExperience;
 
   return data;
 };
