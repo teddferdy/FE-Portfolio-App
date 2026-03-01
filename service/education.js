@@ -1,6 +1,7 @@
 import { axiosInstance } from ".";
 import { data } from "@/utils/majorList";
 import { formatText } from "@/utils/formatTextFirstLetterUpper";
+import { getDataEducation } from "@/lib/data-dummy";
 
 export const getListEducation = async () => {
   // const { data, status } = await axiosInstance.get(
@@ -10,22 +11,7 @@ export const getListEducation = async () => {
   // if (status !== 200) throw Error(`${data.message}`);
   // return data;
 
-  const data = [
-    {
-      duration: "3 Years",
-      institution: "Akademi Teknologi Warga Surakarta",
-      degree: "Diploma of Engineering, Major In Mechanical Engineering",
-      startDate: "Aug 2016",
-      endDate: "Nov 2019",
-    },
-    {
-      duration: "3 Months",
-      institution: "Glints Academy",
-      degree: "Front-end Developer Bootcamp",
-      startDate: "Nov 2020",
-      endDate: "May 2021",
-    },
-  ];
+  const data = getDataEducation;
 
   return data;
 };

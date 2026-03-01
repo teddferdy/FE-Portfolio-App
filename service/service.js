@@ -30,6 +30,7 @@
 //   return data;
 // };
 
+import { getDataService } from "@/lib/data-dummy";
 import { axiosInstance } from ".";
 
 export const getListService = async () => {
@@ -40,33 +41,14 @@ export const getListService = async () => {
   // if (status !== 200) throw Error(`${data.message}`);
   // return data;
 
-  const data = {
-    status: "200",
-    data: [
-      {
-        name: "FE Developer",
-        description:
-          "Specialized in building fast, responsive, and user-friendly interfaces using modern technologies such as React.js, Next.js, and Tailwind CSS.",
-      },
-      {
-        name: "BE Developer",
-        description:
-          "Experienced in developing secure and scalable server logic, API integrations, and database management using Node.js, Express.js, PostgreSQL, or MongoDB.",
-      },
-      {
-        name: "Wordpress Developer",
-        description:
-          "Creating and managing WordPress-based websites, including theme customization, plugin development, performance optimization, and SEO configuration.",
-      },
-    ],
-  };
+  const data = getDataService;
 
   return data;
 };
 
 export const getListServiceInputWork = async () => {
   const { data, status } = await axiosInstance.get(
-    `/service/get-service?isTable=false`
+    `/service/get-service?isTable=false`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -84,7 +66,7 @@ export const getListServiceInputWork = async () => {
 // Get List service In Table
 export const getListTableService = async ({ page, limit }) => {
   const { data, status } = await axiosInstance.get(
-    `/service/get-service?isTable=true&page=${page}&limit=${limit}`
+    `/service/get-service?isTable=true&page=${page}&limit=${limit}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -94,7 +76,7 @@ export const getListTableService = async ({ page, limit }) => {
 // Get By Id
 export const getServiceById = async (payload) => {
   const { data, status } = await axiosInstance.get(
-    `/service/get-service/${payload.id}`
+    `/service/get-service/${payload.id}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -105,7 +87,7 @@ export const getServiceById = async (payload) => {
 export const postService = async (payload) => {
   const { data, status } = await axiosInstance.post(
     "/service/add-service",
-    payload
+    payload,
   );
 
   if (status !== 200 && status !== 201) throw Error(`${data.message}`);
@@ -115,7 +97,7 @@ export const postService = async (payload) => {
 export const putService = async ({ id, body }) => {
   const { data, status } = await axiosInstance.put(
     `/service/edit-service/${id}`,
-    body
+    body,
   );
 
   if (status !== 200) throw Error(`${data.message}`);
@@ -124,7 +106,7 @@ export const putService = async ({ id, body }) => {
 
 export const deleteService = async ({ id }) => {
   const { data, status } = await axiosInstance.delete(
-    `/service/delete-service/${id}`
+    `/service/delete-service/${id}`,
   );
 
   if (status !== 200) throw Error(`${data.message}`);

@@ -1,3 +1,4 @@
+import { getDataHome } from "@/lib/data-dummy";
 import { axiosInstance } from ".";
 
 export const title = async () => {
@@ -7,14 +8,7 @@ export const title = async () => {
   // if (status !== 200) throw Error(`${data.message}`);
   // return data;
 
-  const data = {
-    status: "200",
-    data: {
-      name: "Teddy Ferdian Abrar Amrullah",
-      position: "Full Stack Developer",
-      photo: "/photo.jpg",
-    },
-  };
+  const data = getDataHome;
 
   return data;
 };

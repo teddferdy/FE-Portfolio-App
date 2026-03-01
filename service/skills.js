@@ -1,3 +1,4 @@
+import { getDataSkills } from "@/lib/data-dummy";
 import { axiosInstance } from ".";
 
 export const getListSkills = async () => {
@@ -8,51 +9,7 @@ export const getListSkills = async () => {
   // if (status !== 200) throw Error(`${data.message}`);
   // return data;
 
-  const data = [
-    {
-      name: "HTML 5",
-    },
-    {
-      name: "CSS 3",
-    },
-    {
-      name: "JavaScript",
-    },
-    {
-      name: "React Js",
-    },
-    {
-      name: "Next JS",
-    },
-    { name: "Node JS" },
-    {
-      name: "Express JS",
-    },
-    {
-      name: "Tailwind",
-    },
-    {
-      name: "TypeScript",
-    },
-    {
-      name: "Github",
-    },
-    {
-      name: "Material UI",
-    },
-    {
-      name: "Vue JS",
-    },
-    {
-      name: "Vuetify",
-    },
-    {
-      name: "Postgresql",
-    },
-    {
-      name: "Sequelize",
-    },
-  ];
+  const data = getDataSkills;
 
   return data;
 };

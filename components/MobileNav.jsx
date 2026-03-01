@@ -8,7 +8,12 @@ import { CiMenuFries } from "react-icons/ci";
 import { IoLogOut } from "react-icons/io5";
 
 // Components
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
 
 const MobileNav = ({ menus, handleLogout, isHeaderDashboard }) => {
   const pathName = usePathname();
@@ -19,6 +24,7 @@ const MobileNav = ({ menus, handleLogout, isHeaderDashboard }) => {
         <CiMenuFries className="text-[32px] text-accent" />
       </SheetTrigger>
       <SheetContent className="flex flex-col overflow-scroll">
+        <SheetTitle className="hidden">Mobile Navigation</SheetTitle>
         <div className="my-20 text-center text-2xl">
           <Link href="/">
             <h1 className="text-4xl font-semibold">
