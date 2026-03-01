@@ -32,7 +32,7 @@ const Certificate = () => {
   const RENDER_EXPERIENCE = useMemo(() => {
     if (
       getListCertificateData?.isLoading ||
-      getListCertificateData.isFetching
+      getListCertificateData?.isFetching
     ) {
       return (
         <div className="flex flex-col gap-[20px] py-8 text-center xl:text-left">
@@ -63,7 +63,7 @@ const Certificate = () => {
 
     if (
       getListCertificateData?.data &&
-      getListCertificateData?.data?.data?.length > 0
+      getListCertificateData?.data?.length > 0
     ) {
       return (
         <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -78,13 +78,13 @@ const Certificate = () => {
           </div>
           <div className="h-[400px]">
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
-              {getListCertificateData?.data?.data?.map((items, index) => {
+              {getListCertificateData?.data?.map((items, index) => {
                 return (
                   <Zoom key={index}>
                     <li className="bg-[#232329] h-auto py-6 px-10 rounded-xl flex flex-col items-center lg:items-start gap-1">
                       <Image
                         src={items.image}
-                        alt={items.title}
+                        alt={items.description}
                         width={200}
                         height={200}
                         className="object-cover rounded-md w-full h-44"

@@ -64,7 +64,7 @@ const Header = () => {
       return (
         <Link href="/">
           <h1 className="text-4xl font-semibold">
-            {titleHome?.data?.data?.name || "-"}{" "}
+            {titleHome?.data?.data?.name.slice(0, 13) || "-"}{" "}
             <span className="text-accent">.</span>
           </h1>
         </Link>

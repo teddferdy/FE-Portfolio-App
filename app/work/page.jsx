@@ -21,6 +21,8 @@ import Image from "next/image";
 
 import WorkSlideBtn from "@/components/WorkSlideBtn";
 
+import DummyImage from "@/assets/img/dummy-Images.jpg";
+
 import { workList } from "@/service/work";
 import EmptyData from "@/components/EmptyData";
 
@@ -79,7 +81,7 @@ const Work = () => {
                     className="text-white/60"
                     dangerouslySetInnerHTML={{ __html: project?.description }}
                   />
-                  <ul className="flex gap-4">
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project?.stack?.map((items, index) => {
                       return (
                         <li key={index} className="text-accent text-xl">
@@ -139,7 +141,7 @@ const Work = () => {
 
                           <div>
                             <Image
-                              src={items.img}
+                              src={items.img || DummyImage}
                               alt={items.title}
                               fill
                               className="object-cover"
