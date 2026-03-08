@@ -2,6 +2,10 @@ import { getDataProjects } from "@/lib/data-dummy";
 import { axiosInstance } from ".";
 const config = { headers: { "Content-Type": "multipart/form-data" } };
 
+import { getDataProjectFrontEnd } from "@/lib/data-dummy";
+import { getDataProjectBE } from "@/lib/data-dummy";
+import { getDataProjectsWordpress } from "@/lib/data-dummy";
+
 export const workList = async () => {
   // const { data, status } = await axiosInstance.get("/project/get-project");
   // if (status !== 200) throw Error(`${data.message}`);
@@ -12,15 +16,20 @@ export const workList = async () => {
 };
 
 export const getProjectByCategory = async (category) => {
-  const { data, status } = await axiosInstance.get(
-    `/project/get-project-by-category/${category}`,
-  );
+  console.log("category =>", category);
 
-  if (status !== 200) {
-    throw new Error(data.message || "Error fetching projects");
+  const text = category
+  const result = text.replace(/%20/g, " ");
+
+  console.log(result);
+
+  if (result === "FE Developer") {
+    return getDataProjectFrontEnd;
+  } else if (result === "BE Developer") {
+    return getDataProjectBE;
+  } else if (result === "Wordpress Developer") {
+    return getDataProjectsWordpress;
   }
-
-  return data;
 };
 
 export const getListProject = async () => {
