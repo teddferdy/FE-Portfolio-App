@@ -81,18 +81,21 @@ const Certificate = () => {
               {getListCertificateData?.data?.map((items, index) => {
                 return (
                   <Zoom key={index}>
-                    <li className="bg-[#232329] h-auto py-6 px-10 rounded-xl flex flex-col items-center lg:items-start gap-1">
-                      <Image
-                        src={items.image}
-                        alt={items.description}
-                        width={200}
-                        height={200}
-                        className="object-cover rounded-md w-full h-44"
-                      />
+                    <li className="bg-[#232329] py-6 px-10 rounded-xl flex flex-col items-center lg:items-start gap-3">
+                      <div className="relative w-full h-52 rounded-md overflow-hidden">
+                        <Image
+                          src={items.image}
+                          alt={items.description}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+
                       <div className="flex items-center gap-3">
                         <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                         <p className="text-white/60">{items.description}</p>
                       </div>
+
                       <span className="text-accent">{items.type}</span>
                     </li>
                   </Zoom>

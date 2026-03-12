@@ -11,24 +11,38 @@ export const workList = async () => {
   // if (status !== 200) throw Error(`${data.message}`);
   // return data;
 
-  const data = getDataProjects;
+  const data = getDataProjects.map((item, index) => {
+    return {
+      ...item,
+      num: index + 1,
+    };
+  });
   return data;
 };
 
 export const getProjectByCategory = async (category) => {
   console.log("category =>", category);
 
-  const text = category
+  const text = category;
   const result = text.replace(/%20/g, " ");
 
   console.log(result);
 
   if (result === "FE Developer") {
-    return getDataProjectFrontEnd;
+    return getDataProjectFrontEnd.map((item, index) => ({
+      ...item,
+      num: index + 1,
+    }));
   } else if (result === "BE Developer") {
-    return getDataProjectBE;
+    return getDataProjectBE.map((item, index) => ({
+      ...item,
+      num: index + 1,
+    }));
   } else if (result === "Wordpress Developer") {
-    return getDataProjectsWordpress;
+    return getDataProjectsWordpress.map((item, index) => ({
+      ...item,
+      num: index + 1,
+    }));
   }
 };
 
