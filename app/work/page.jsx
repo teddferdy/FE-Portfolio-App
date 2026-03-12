@@ -93,7 +93,7 @@ const Work = () => {
                   </ul>
                   <div className="border border-white/20"></div>
                   <div className="flex items-center gap-4">
-                    <Link href={project?.live || ""}>
+                    <Link href={project?.projectLive || ""} target="_blank">
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
                           <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -136,17 +136,15 @@ const Work = () => {
                   {getWorkData?.data?.map((items, index) => {
                     return (
                       <SwiperSlide key={index} className="w-full">
-                        <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20 rounded-lg">
-                          <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                        <div className="h-[460px] relative flex justify-center items-center bg-pink-50/20 rounded-lg overflow-hidden">
+                          <Image
+                            src={items.image || DummyImage}
+                            alt={items.title}
+                            fill
+                            className="object-fill"
+                          />
 
-                          <div>
-                            <Image
-                              src={items.img || DummyImage}
-                              alt={items.title}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
+                          <div className="absolute inset-0 bg-black/10 z-10"></div>
                         </div>
                       </SwiperSlide>
                     );
