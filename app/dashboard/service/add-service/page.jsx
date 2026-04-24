@@ -9,6 +9,7 @@ import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
 import { LuAsterisk } from "react-icons/lu";
+export const dynamic = "force-dynamic";
 
 import {
   Breadcrumb,
@@ -29,7 +30,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import DashboardLayout from "@/components/DashboardTemplate";
+
+const DashboardLayout = dynamic(
+  () => import("@/components/DashboardTemplate"),
+  { ssr: false },
+);
 
 import { postService } from "@/service/service";
 
