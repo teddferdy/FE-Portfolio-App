@@ -52,7 +52,7 @@ export default function Home() {
 
               <div className="flex flex-col lg:flex-row items-center gap-8">
                 <a
-                  href="/CV_Teddy_Latest.pdf"
+                  href="/CV_Teddy.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   download
