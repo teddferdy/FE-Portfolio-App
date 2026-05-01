@@ -1,8 +1,10 @@
 "use client";
 
+import { useLocale } from "@/message/localProvider";
 import CountUp from "react-countup";
 
 const Stats = ({ data }) => {
+  const { t } = useLocale();
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
       <div className="container mx-auto">
@@ -24,7 +26,7 @@ const Stats = ({ data }) => {
                     items.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
                   } leading-snug text-white/80`}
                 >
-                  {items.text}
+                  {t(items.text)}
                 </p>
               </div>
             );

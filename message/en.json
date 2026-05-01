@@ -1,0 +1,70 @@
+{
+  "General": {
+    "name": "Name",
+    "phone": "Phone Number",
+    "experience": "Pengalaman",
+    "nationality": "Nationality",
+    "email": "Email",
+    "freelance": "Freelance",
+    "languages": "Languages",
+    "available": "Available",
+    "notAvailable": "Not Available",
+    "years": "Years",
+    "present": "Present"
+  },
+  "Month": {
+    "jan": "January",
+    "feb": "February",
+    "mar": "March",
+    "apr": "April",
+    "may": "May",
+    "jun": "June",
+    "jul": "July",
+    "aug": "August",
+    "sep": "September",
+    "oct": "October",
+    "nov": "November",
+    "dec": "December"
+  },
+  "Header": {
+    "home": "Home",
+    "service": "Service",
+    "resume": "Resume",
+    "work": "Work",
+    "certificate": "Certificate",
+    "contact": "Contact"
+  },
+  "Home": {
+    "greetings": "Hello, I'm",
+    "download": "Download CV",
+    "experience": "Years Experience",
+    "project": "Project Completed",
+    "technology": "Technology Mastered"
+  },
+  "Service": {
+    "feDeveloper": "FE Developer",
+    "descFeDeveloper": "Specialized in building fast, responsive, and user-friendly interfaces using modern technologies such as React.js, Next.js, and Tailwind CSS.",
+    "beDeveloper": "BE Developer",
+    "descBeDEveloper": "Experienced in developing secure and scalable server logic, API integrations, and database management using Node.js, Express.js, PostgreSQL, or MongoDB.",
+    "wordPressDeveloper": "Wordpress Developer",
+    "descWordPressDeveloper": "Creating and managing WordPress-based websites, including theme customization, plugin development, performance optimization, and SEO configuration."
+  },
+  "Resume": {
+    "experience": {
+      "title": "Experience",
+      "description": "My professional journey in developing various digital projects, building efficient solutions, and delivering real impact for businesses."
+    },
+    "educeation": {
+      "title": "Education",
+      "description": "My educational background that forms the foundation of my knowledge and skills in technology and software development."
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "A combination of technical and non-technical skills that I leverage to build high-quality, scalable, and user-friendly digital products."
+    },
+    "aboutMe": {
+      "title": "About Me",
+      "description": "I am a developer focused on building modern applications with high performance and excellent user experience, while continuously learning and adapting to new technologies."
+    }
+  }
+}

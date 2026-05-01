@@ -1,0 +1,71 @@
+{
+  "General": {
+    "name": "Nama",
+    "phone": "Nomor Handphone",
+    "experience": "Pengalaman",
+    "nationality": "Kebangsaan",
+    "email": "Email",
+    "freelance": "Freelance",
+    "languages": "Bahasa",
+    "available": "Tersedia",
+    "notAvailable": "Tidak Tersedia",
+    "years": "Tahun",
+    "present": "Sekarang"
+  },
+  "Month": {
+    "jan": "Januari",
+    "feb": "Februari",
+    "mar": "Maret",
+    "apr": "April",
+    "may": "Mei",
+    "jun": "Juni",
+    "jul": "Juli",
+    "aug": "Agustus",
+    "sep": "September",
+    "oct": "Oktober",
+    "nov": "November",
+    "dec": "Desember"
+  },
+  "Header": {
+    "home": "Beranda",
+    "service": "Layanan",
+    "resume": "Resume",
+    "work": "Project",
+    "certificate": "Sertifikat",
+    "contact": "Kontak"
+  },
+
+  "Home": {
+    "greetings": "Halo, Saya",
+    "download": "Unduh CV",
+    "experience": "Tahun Pengalaman",
+    "project": "Proyek Selesai",
+    "technology": "Teknologi Dikuasai"
+  },
+  "Service": {
+    "feDeveloper": "FE Developer",
+    "descFeDeveloper": "Spesialis dalam membangun antarmuka yang cepat, responsif, dan ramah pengguna menggunakan teknologi modern seperti React.js, Next.js, dan Tailwind CSS.",
+    "beDeveloper": "BE Developer",
+    "descBeDEveloper": "Berpengalaman dalam mengembangkan logika server yang aman dan skalabel, integrasi API, serta pengelolaan database menggunakan Node.js, Express.js, PostgreSQL, atau MongoDB.",
+    "wordPressDeveloper": "Wordpress Developer",
+    "descWordPressDeveloper": "Membuat dan mengelola website berbasis WordPress, termasuk kustomisasi tema, pengembangan plugin, optimasi performa, dan konfigurasi SEO."
+  },
+  "Resume": {
+    "experience": {
+      "title": "Pengalaman",
+      "description": "Perjalanan karier saya dalam mengembangkan berbagai proyek digital, membangun solusi yang efisien, dan memberikan dampak nyata bagi bisnis."
+    },
+    "educeation": {
+      "title": "Pendidikan",
+      "description": "Latar belakang pendidikan yang membentuk dasar pengetahuan dan kemampuan saya dalam dunia teknologi dan pengembangan perangkat lunak."
+    },
+    "skills": {
+      "title": "Keahlian",
+      "description": "Kumpulan keahlian teknis dan non-teknis yang saya kuasai untuk menciptakan produk digital yang berkualitas, scalable, dan user-friendly."
+    },
+    "aboutMe": {
+      "title": "Tentang Saya",
+      "description": "Saya adalah seorang developer yang berfokus pada pembuatan aplikasi modern dengan performa tinggi dan pengalaman pengguna yang optimal, serta selalu antusias mempelajari teknologi baru."
+    }
+  }
+}

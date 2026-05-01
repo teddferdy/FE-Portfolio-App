@@ -1,17 +1,19 @@
 "use client";
+import { useLocale } from "@/message/localProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const link = [
-  { name: "Home", path: "/" },
-  { name: "Services", path: "/services" },
-  { name: "Resume", path: "/resume" },
-  { name: "Work", path: "/work" },
-  { name: "Certificate", path: "/certificate" },
-  { name: "Contact", path: "/contact" },
-];
-
 const Nav = () => {
+  const { t } = useLocale();
+
+  const link = [
+    { name: t("Header.home"), path: "/" },
+    { name: t("Header.service"), path: "/services" },
+    { name: t("Header.resume"), path: "/resume" },
+    { name: t("Header.work"), path: "/work" },
+    { name: t("Header.certificate"), path: "/certificate" },
+    { name: t("Header.contact"), path: "/contact" },
+  ];
   const pathName = usePathname();
 
   return (

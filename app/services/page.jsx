@@ -5,6 +5,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 
+// Transalation
+import { useLocale } from "@/message/localProvider";
+
 // Icons
 import { BsArrowDownRight } from "react-icons/bs";
 
@@ -15,9 +18,12 @@ import AbortController from "@/components/AbortController";
 
 // Service
 import { getListService } from "@/service/service";
+
 const array = Array(8).fill(null);
 
 const Services = () => {
+  const { t } = useLocale();
+
   // Query
   const getServiceData = useQuery({
     queryKey: ["getListService"],
@@ -74,10 +80,10 @@ const Services = () => {
                 </div>
                 {/* Heading Title */}
                 <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
-                  {items.name}
+                  {t(items.name)}
                 </h2>
 
-                <p className="text-white/60">{items.description}</p>
+                <p className="text-white/60">{t(items.description)}</p>
 
                 <div className="border-b border-white/20 w-full"></div>
               </div>
