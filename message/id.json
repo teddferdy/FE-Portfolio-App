@@ -10,7 +10,11 @@
     "available": "Tersedia",
     "notAvailable": "Tidak Tersedia",
     "years": "Tahun",
-    "present": "Sekarang"
+    "month": "Bulan",
+    "present": "Sekarang",
+    "category": "Kategori",
+    "liveProject": "Lihat Demo",
+    "project": "Proyek"
   },
   "Month": {
     "jan": "Januari",
@@ -57,7 +61,15 @@
     },
     "educeation": {
       "title": "Pendidikan",
-      "description": "Latar belakang pendidikan yang membentuk dasar pengetahuan dan kemampuan saya dalam dunia teknologi dan pengembangan perangkat lunak."
+      "description": "Latar belakang pendidikan yang membentuk dasar pengetahuan dan kemampuan saya dalam dunia teknologi dan pengembangan perangkat lunak.",
+      "college": {
+        "institution": "Akademi Teknologi Warga Surakarta",
+        "degree": "Diploma Teknik, Jurusan Teknik Mesin"
+      },
+      "glintsBootcamp": {
+        "institution": "Glints Academy",
+        "degree": "Bootcamp Front-end Developer"
+      }
     },
     "skills": {
       "title": "Keahlian",
@@ -66,6 +78,63 @@
     "aboutMe": {
       "title": "Tentang Saya",
       "description": "Saya adalah seorang developer yang berfokus pada pembuatan aplikasi modern dengan performa tinggi dan pengalaman pengguna yang optimal, serta selalu antusias mempelajari teknologi baru."
+    }
+  },
+  "Project": {
+    "fitnessProject": {
+      "title": "Aplikasi Fitness Web",
+      "category": "Pengembangan Web (Frontend Developer)",
+      "description": "Mengembangkan aplikasi fitness berbasis React.js dengan fokus pada performa, komponen reusable, dan antarmuka yang user-friendly."
+    },
+    "movieProject": {
+      "title": "Aplikasi Review Film",
+      "category": "Pengembangan Web (Frontend Developer)",
+      "description": "Membangun platform review film menggunakan React.js dengan tampilan dinamis dan fitur interaktif."
+    },
+    "pokemonProject": {
+      "title": "Aplikasi Web Pokémon",
+      "category": "Pengembangan Web (Frontend Developer)",
+      "description": "Mengembangkan aplikasi Pokémon berbasis React.js dengan integrasi API dan pengelolaan state yang optimal."
+    },
+    "posAppFe": {
+      "title": "Point of Sale (POS) - Frontend",
+      "category": "Pengembangan Web (Fullstack Developer)",
+      "description": "Mengembangkan sisi frontend sistem POS menggunakan Next.js dengan fokus pada skalabilitas, performa, dan pengalaman pengguna."
+    },
+    "portfolioAppFe": {
+      "title": "Website Portfolio - Frontend",
+      "category": "Pengembangan Web (Fullstack Developer)",
+      "description": "Merancang dan mengembangkan website portfolio modern menggunakan Next.js dengan performa optimal dan tampilan yang bersih."
+    },
+    "posAppBe": {
+      "title": "Point of Sale (POS) - Backend",
+      "category": "Pengembangan Web (Fullstack Developer)",
+      "description": "Membangun layanan backend yang scalable untuk sistem POS menggunakan Express.js, termasuk pengembangan API dan integrasi database."
+    },
+    "portfolioAppBe": {
+      "title": "Website Portfolio - Backend",
+      "category": "Pengembangan Web (Fullstack Developer)",
+      "description": "Mengembangkan API backend untuk aplikasi portfolio menggunakan Express.js dengan pengolahan data yang efisien."
+    },
+    "yaoYao": {
+      "title": "Website Yao Yao",
+      "category": "Pengembangan WordPress (Elementor)",
+      "description": "Mengembangkan website company profile menggunakan WordPress dan Elementor dengan desain responsif dan optimasi SEO."
+    },
+    "premiumInterindo": {
+      "title": "Website Premium Interindo",
+      "category": "Pengembangan WordPress (Elementor)",
+      "description": "Membangun website perusahaan menggunakan WordPress dengan fokus pada performa, responsivitas, dan konsistensi branding."
+    },
+    "biSinergi": {
+      "title": "Website Bi-Sinergi",
+      "category": "Pengembangan WordPress (Elementor)",
+      "description": "Membuat website profesional menggunakan WordPress dengan tata letak yang optimal dan pengalaman pengguna yang baik."
+    },
+    "sanex": {
+      "title": "Website Sanex",
+      "category": "Pengembangan WordPress (Elementor)",
+      "description": "Mengembangkan website WordPress yang responsif dengan desain yang bersih dan performa yang optimal."
     }
   }
 }

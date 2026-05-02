@@ -70,6 +70,15 @@ const formatMonthYear = (value, t) => {
   return `${month} ${year}`;
 };
 
+const formatDuration = (value, t) => {
+  if (!value) return "";
+
+  const [number, duration] = value.split(" "); // "Month.aug" + "2016"
+  const text = t(duration); // ambil dari i18n
+
+  return `${number} ${text}`;
+};
+
 const Resume = () => {
   const { t } = useLocale();
   const [activeTab, setActiveTab] = useState("experience");
@@ -226,9 +235,11 @@ const Resume = () => {
                     key={index}
                     className="bg-[#232329] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                   >
-                    <span className="text-accent">{items.duration}</span>
-                    <h3 className="text-xl min-h-[60px] text-center lg:text-left">
-                      {items.institution}
+                    <span className="text-accent">
+                      {formatDuration(items.duration, t)}
+                    </span>
+                    <h3 className="text-xl text-center lg:text-left">
+                      {t(`${items.institution}`)}
                     </h3>
                     <p className="text-white/60">{items.major}</p>
                     <span className="text-accent">
@@ -239,7 +250,7 @@ const Resume = () => {
                     </span>
                     <div className="flex items-center gap-3">
                       <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                      <p className="text-white/60">{items.degree}</p>
+                      <p className="text-white/60">{t(`${items.degree}`)}</p>
                     </div>
                   </li>
                 );

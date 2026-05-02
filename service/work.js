@@ -28,17 +28,17 @@ export const getProjectByCategory = async (category) => {
 
   console.log(result);
 
-  if (result === "FE Developer") {
+  if (result === "Service.feDeveloper") {
     return getDataProjectFrontEnd.map((item, index) => ({
       ...item,
       num: index + 1,
     }));
-  } else if (result === "BE Developer") {
+  } else if (result === "Service.beDeveloper") {
     return getDataProjectBE.map((item, index) => ({
       ...item,
       num: index + 1,
     }));
-  } else if (result === "Wordpress Developer") {
+  } else if (result === "Service.wordPressDeveloper") {
     return getDataProjectsWordpress.map((item, index) => ({
       ...item,
       num: index + 1,

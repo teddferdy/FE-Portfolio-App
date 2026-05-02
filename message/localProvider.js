@@ -38,6 +38,11 @@ export const LocaleProvider = ({ children }) => {
 
   const t = useMemo(() => {
     return (key) => {
+      if (!key || typeof key !== "string") return "";
+
+      // kalau bukan key i18n, return apa adanya
+      if (!key.includes(".")) return key;
+
       const keys = key.split(".");
 
       let value = messages[locale];

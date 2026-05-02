@@ -10,7 +10,11 @@
     "available": "Available",
     "notAvailable": "Not Available",
     "years": "Years",
-    "present": "Present"
+    "month": "Month",
+    "present": "Present",
+    "category": "Category",
+    "liveProject": "Live Project",
+    "project": "Project"
   },
   "Month": {
     "jan": "January",
@@ -56,7 +60,15 @@
     },
     "educeation": {
       "title": "Education",
-      "description": "My educational background that forms the foundation of my knowledge and skills in technology and software development."
+      "description": "My educational background that forms the foundation of my knowledge and skills in technology and software development.",
+      "college": {
+        "institution": "Akademi Teknologi Warga Surakarta",
+        "degree": "Diploma of Engineering, Major In Mechanical Engineering"
+      },
+      "glintsBootcamp": {
+        "institution": "Glints Academy",
+        "degree": "Front-end Developer Bootcamp"
+      }
     },
     "skills": {
       "title": "Skills",
@@ -65,6 +77,63 @@
     "aboutMe": {
       "title": "About Me",
       "description": "I am a developer focused on building modern applications with high performance and excellent user experience, while continuously learning and adapting to new technologies."
+    }
+  },
+  "Project": {
+    "fitnessProject": {
+      "title": "Fitness Web App",
+      "category": "Web Development (Frontend Developer)",
+      "description": "Developed a responsive fitness application using React.js, focusing on performance, reusable components, and user-friendly interface."
+    },
+    "movieProject": {
+      "title": "Movie Review App",
+      "category": "Web Development (Frontend Developer)",
+      "description": "Built a movie review platform using React.js with dynamic data rendering and interactive UI features."
+    },
+    "pokemonProject": {
+      "title": "Pokémon Web App",
+      "category": "Web Development (Frontend Developer)",
+      "description": "Created a Pokémon web application using React.js with API integration and optimized state management."
+    },
+    "posAppFe": {
+      "title": "Point of Sale (POS) - Frontend",
+      "category": "Web Development (Fullstack Developer)",
+      "description": "Developed the frontend of a POS system using Next.js, ensuring scalability, performance, and seamless user experience."
+    },
+    "portfolioAppFe": {
+      "title": "Portfolio Website - Frontend",
+      "category": "Web Development (Fullstack Developer)",
+      "description": "Designed and developed a modern portfolio website using Next.js with optimized performance and clean UI."
+    },
+    "posAppBe": {
+      "title": "Point of Sale (POS) - Backend",
+      "category": "Web Development (Fullstack Developer)",
+      "description": "Built scalable backend services for a POS system using Express.js, including API development and database integration."
+    },
+    "portfolioAppBe": {
+      "title": "Portfolio Website - Backend",
+      "category": "Web Development (Fullstack Developer)",
+      "description": "Developed backend APIs for portfolio applications using Express.js with efficient data handling."
+    },
+    "yaoYao": {
+      "title": "Yao Yao Website",
+      "category": "WordPress Development (Elementor)",
+      "description": "Developed a company profile website using WordPress and Elementor with responsive design and SEO optimization."
+    },
+    "premiumInterindo": {
+      "title": "Premium Interindo Website",
+      "category": "WordPress Development (Elementor)",
+      "description": "Built a corporate website using WordPress with a focus on performance, responsiveness, and branding consistency."
+    },
+    "biSinergi": {
+      "title": "Bi-Sinergi Website",
+      "category": "WordPress Development (Elementor)",
+      "description": "Created a professional website using WordPress with optimized layout and user experience."
+    },
+    "sanex": {
+      "title": "Sanex Website",
+      "category": "WordPress Development (Elementor)",
+      "description": "Developed a responsive WordPress website with clean design and optimized performance."
     }
   }
 }
