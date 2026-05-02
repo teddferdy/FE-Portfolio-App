@@ -12,16 +12,11 @@ import "react-medium-image-zoom/dist/styles.css";
 import { getListCertificate } from "@/service/certificate";
 import { Skeleton } from "@/components/ui/skeleton";
 import AbortController from "@/components/AbortController";
+import { useLocale } from "@/message/localProvider";
 const array = Array(8).fill(null);
 
-const experience = {
-  icon: "",
-  title: "My Certificate",
-  description: `My Certificate`,
-  note: "Note: Click Image To Zoom Image",
-};
-
 const Certificate = () => {
+  const { t } = useLocale();
   // Query
   const getListCertificateData = useQuery({
     queryKey: ["getListCertificate"],
@@ -67,13 +62,14 @@ const Certificate = () => {
     ) {
       return (
         <div className="flex flex-col gap-[30px] text-center xl:text-left">
-          <h3 className="text-4xl font-bold">{experience?.title}</h3>
+          
+          <h3 className="text-4xl font-bold">{t("Ceritificate.title")}</h3>
           <div className="flex flex-col">
-            <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-              {experience?.description}
+            <p className="text-white/60 mx-auto xl:mx-0">
+              {t("Ceritificate.description")}
             </p>
-            <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-              {experience?.note}
+            <p className="text-white/60 mx-auto xl:mx-0">
+              {t("General.note")} : {t("General.clickImage")}
             </p>
           </div>
           <div className="h-[400px]">
@@ -109,7 +105,7 @@ const Certificate = () => {
 
     return (
       <div className="h-96 flex items-center justify-center bg-pink-50/20 rounded-md">
-        <h1>No data available</h1>
+        <h1>{t("General.emptyData")}</h1>
       </div>
     );
   }, [getListCertificateData]);

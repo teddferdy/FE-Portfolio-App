@@ -37,6 +37,7 @@ import { Fragment } from "react";
 
 import { getContact } from "@/service/contact";
 import { getListService } from "@/service/service";
+import { useLocale } from "@/message/localProvider";
 
 const ICON = {
   Phone: <FaPhoneAlt />,
@@ -45,23 +46,18 @@ const ICON = {
 };
 
 const Contact = () => {
+  const { t } = useLocale();
   const { toast } = useToast();
+
   const { setActive } = useLoading();
+
   const formSchema = z.object({
-    firstName: z
-      .string()
-      .min(2, "Enter a First Name with at least 2 characters."),
-    lastName: z
-      .string()
-      .min(2, "Enter a Last name with at least 2 characters."),
-    email: z.string().email("Enter a valid email."),
-    description: z
-      .string()
-      .min(4, "Enter a description with at least 2 characters."),
-    phoneNumber: z
-      .string()
-      .min(4, "Enter a Phone Number at least 4 characters."),
-    category: z.string().min(1, "Select at least one Service."),
+    firstName: z.string().min(2, t("Contact.errorFirstName")),
+    lastName: z.string().min(2, t("Contact.errorLastName")),
+    email: z.string().email(t("Contact.errorEmail")),
+    description: z.string().min(4, t("Contact.errorDescrition")),
+    phoneNumber: z.string().min(4, t("Contact.errorPhoneNumber")),
+    category: z.string().min(1, t("Contact.errorService")),
   });
 
   const form = useForm({
@@ -100,12 +96,13 @@ const Contact = () => {
       .sendForm("service_jciernm", "template_b74phwa", formElement, {
         publicKey: "69-1dTBFPi2AH0Tcm",
       })
+
       .then(
         () => {
           setTimeout(() => {
             toast({
               variant: "success",
-              title: "Success Sent Email!",
+              title: t("Contact.successSentEmail"),
             });
           }, 1000);
           setTimeout(() => {
@@ -117,14 +114,14 @@ const Contact = () => {
           setTimeout(() => {
             toast({
               variant: "destructive",
-              title: "Uh oh! Something went wrong.",
+              title: toast("Contact.errorSentEmail"),
               description: error,
             });
           }, 1000);
           setTimeout(() => {
             setActive(null, null);
           }, 2000);
-        }
+        },
       );
   };
 
@@ -149,7 +146,7 @@ const Contact = () => {
           <div className="flex flex-1 flex-col xl:flex-row gap-4">
             {/* Form */}
             <div className="flex flex-1 flex-col gap-6 order-1 xl:order-none w-full">
-              <h3 className="text-4xl text-accent">Let's Work Together</h3>
+              <h3 className="text-4xl text-accent">{t("Contact.title")}</h3>
               {/* <p className="text-white/60">lorem</p> */}
               <Form {...form}>
                 <form
@@ -165,14 +162,14 @@ const Contact = () => {
                         <FormItem>
                           <div className="mb-4 flex items-center gap-2">
                             <FormLabel className="text-base">
-                              First Name
+                              {t("Contact.firstName")}
                             </FormLabel>
                             <LuAsterisk className="w-4 h-4 text-red-600" />
                           </div>
                           <Input
                             type="text"
                             {...field}
-                            placeholder="Enter Your First Name"
+                            placeholder={t("Contact.placeHolderFirstName")}
                             className="w-full"
                           />
                           {form.formState.errors.firstName && (
@@ -193,14 +190,14 @@ const Contact = () => {
                         <FormItem>
                           <div className="mb-4 flex items-center gap-2">
                             <FormLabel className="text-base">
-                              Last Name
+                              {t("Contact.lastName")}
                             </FormLabel>
                             <LuAsterisk className="w-4 h-4 text-red-600" />
                           </div>
                           <Input
                             type="text"
                             {...field}
-                            placeholder="Enter Your Last Name"
+                            placeholder={t("Contact.placeHolderLastName")}
                             className="w-full"
                           />
                           {form.formState.errors.lastName && (
@@ -220,13 +217,15 @@ const Contact = () => {
                       render={({ field }) => (
                         <FormItem>
                           <div className="mb-4 flex items-center gap-2">
-                            <FormLabel className="text-base">Email</FormLabel>
+                            <FormLabel className="text-base">
+                              {t("Contact.email")}
+                            </FormLabel>
                             <LuAsterisk className="w-4 h-4 text-red-600" />
                           </div>
                           <Input
                             type="email"
                             {...field}
-                            placeholder="Enter Email"
+                            placeholder={t("Contact.placeHolderEmail")}
                             className="w-full"
                           />
                           {form.formState.errors.email && (
@@ -247,14 +246,14 @@ const Contact = () => {
                         <FormItem>
                           <div className="mb-4 flex items-center gap-2">
                             <FormLabel className="text-base">
-                              Phone Number / WA Number
+                              {t("Contact.phoneNumber")}
                             </FormLabel>
                             <LuAsterisk className="w-4 h-4 text-red-600" />
                           </div>
                           <Input
                             type="text"
                             {...field}
-                            placeholder="Enter Phone Number"
+                            placeholder={t("Contact.placeHolderPhoneNumber")}
                             className="w-full"
                             onInput={handleInput}
                           />
@@ -276,7 +275,9 @@ const Contact = () => {
                       render={({ field }) => (
                         <FormItem>
                           <div className="mb-4 flex items-center gap-2">
-                            <FormLabel className="text-base">Service</FormLabel>
+                            <FormLabel className="text-base">
+                              {t("Contact.Service")}
+                            </FormLabel>
                             <LuAsterisk className="w-4 h-4 text-red-600" />
                           </div>
                           <DropdownMenu>
@@ -284,14 +285,16 @@ const Contact = () => {
                               <div>
                                 <Input
                                   {...field}
-                                  placeholder="Select Service"
+                                  placeholder={t("Contact.placeHolderService")}
                                   readOnly
                                   className="w-full text-left cursor-pointer"
                                 />
                               </div>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56 h-60 overflow-scroll">
-                              <DropdownMenuLabel>Service</DropdownMenuLabel>
+                              <DropdownMenuLabel>
+                                {t("Contact.Service")}
+                              </DropdownMenuLabel>
                               <DropdownMenuSeparator />
                               <DropdownMenuRadioGroup
                                 value={field.value}
@@ -305,7 +308,7 @@ const Contact = () => {
                                     >
                                       {item?.name}
                                     </DropdownMenuRadioItem>
-                                  )
+                                  ),
                                 )}
                               </DropdownMenuRadioGroup>
                             </DropdownMenuContent>
@@ -328,13 +331,15 @@ const Contact = () => {
                       render={({ field }) => (
                         <FormItem>
                           <div className="mb-4 flex items-center gap-2">
-                            <FormLabel className="text-base">Message</FormLabel>
+                            <FormLabel className="text-base">
+                              {t("Contact.message")}
+                            </FormLabel>
                             <LuAsterisk className="w-4 h-4 text-red-600" />
                           </div>
                           <Textarea
                             {...field}
                             type="text"
-                            placeholder="Enter Message"
+                            placeholder={t("Contact.placeholderMessage")}
                             maxLength={30}
                             className="w-full"
                           />
@@ -349,7 +354,7 @@ const Contact = () => {
                   </div>
 
                   <Button size="sm" className="max-w-40" type="submit">
-                    Send Message
+                    {t("Contact.buttonSend")}
                   </Button>
                 </form>
               </Form>
@@ -359,14 +364,19 @@ const Contact = () => {
             <div className="flex flex-[0.5] items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
               <ul className="flex flex-col gap-10">
                 {getContactData?.data?.map((items, index) => {
+                  const addressTitle = items.title === "General.address";
                   return (
                     <li key={index} className="flex items-center gap-6">
                       <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
                         <div className="text-[28px]">{ICON[items.title]}</div>
                       </div>
                       <div className="flex-1">
-                        <p className="text-white/60">{items.title}</p>
-                        <h3 className="text-xl">{items.description}</h3>
+                        <p className="text-white/60">{t(items.title)}</p>
+                        {addressTitle ? (
+                          <h3 className="text-xl">{t(items.description)}</h3>
+                        ) : (
+                          <h3 className="text-xl">{items.description}</h3>
+                        )}
                       </div>
                     </li>
                   );

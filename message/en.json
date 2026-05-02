@@ -5,6 +5,7 @@
     "experience": "Pengalaman",
     "nationality": "Nationality",
     "email": "Email",
+    "address": "Alamat",
     "freelance": "Freelance",
     "languages": "Languages",
     "available": "Available",
@@ -14,7 +15,12 @@
     "present": "Present",
     "category": "Category",
     "liveProject": "Live Project",
-    "project": "Project"
+    "project": "Project",
+    "note": "Noted",
+    "clickImage": "Click Image To Zoom Image",
+    "emptyData": "No data available",
+    "success": "Sukses",
+    "myAddress": "Sanggrahan, Grogol, Sukoharjo, Central Java"
   },
   "Month": {
     "jan": "January",
@@ -135,5 +141,34 @@
       "category": "WordPress Development (Elementor)",
       "description": "Developed a responsive WordPress website with clean design and optimized performance."
     }
+  },
+  "Ceritificate": {
+    "title": "Certificates",
+    "description": "Certificates I have earned as a reflection of my commitment to improving my skills, keeping up with technology trends, and continuously growing as a developer."
+  },
+  "Contact": {
+    "title": "Mari Bekerja Sama",
+    "firstName": "First Name",
+    "placeHolderFirstName": "Enter Your First Name",
+    "lastName": "Last Name",
+    "placeHolderLastName": "Enter Your Last Name",
+    "email": "Email",
+    "placeHolderEmail": "Enter Your Email",
+    "phoneNumber": "Phone Number / WA Number",
+    "placeHolderPhoneNumber": "Enter Your Phone Number",
+    "Service": "Service",
+    "placeHolderService": "Select Service",
+    "message": "Message",
+    "placeholderMessage": "Enter Your Message",
+    "buttonSend": "Send Message",
+
+    "errorFirstName": "Enter a First Name with at least 2 characters.",
+    "errorLastName": "Enter a Last name with at least 2 characters.",
+    "errorEmail": "Enter a valid email.",
+    "errorDescrition": "Enter a description with at least 2 characters.",
+    "errorPhoneNumber": "Enter a Phone Number at least 4 characters.",
+    "errorService": "Select at least one Service.",
+    "successSentEmail": "Sukses Email Sudah Terkirim",
+    "errorSentEmail": "Uh oh! Something went wrong."
   }
 }
