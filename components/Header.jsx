@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { Button } from "./ui/button";
 import Nav from "./Nav";
@@ -8,6 +9,8 @@ import { Skeleton } from "./ui/skeleton";
 import { useQuery } from "@tanstack/react-query";
 import { title } from "@/service/home";
 import AbortController from "./AbortController";
+
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const menus = [
   {
@@ -78,15 +81,17 @@ const Header = () => {
         {DATAS_HEADER}
 
         {/* Desktop Nav */}
-        <div className="hidden xl:flex items-center gap-8">
+        <div className="hidden xl:flex items-center gap-6">
           <Nav />
-          <Link href="/contact">
+          <LanguageSwitcher />
+          {/* <Link href="/contact">
             <Button>Hire Me</Button>
-          </Link>
+          </Link> */}
         </div>
 
         {/* Mobile Nav */}
-        <div className="xl:hidden">
+        <div className="xl:hidden flex items-center gap-4">
+          <LanguageSwitcher />
           <MobileNav menus={menus} isHeaderDashboard={false} />
         </div>
       </div>

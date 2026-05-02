@@ -25,15 +25,20 @@ import DummyImage from "@/assets/img/dummy-Images.jpg";
 
 import { workList } from "@/service/work";
 import EmptyData from "@/components/EmptyData";
+import { useLocale } from "@/message/localProvider";
 
 const Work = () => {
+  const { t } = useLocale();
   // Query
   const getWorkData = useQuery({
     queryKey: ["workList"],
     queryFn: workList,
   });
 
+  console.log(getWorkData, "getWorkData");
+
   const [project, setProject] = useState({});
+  console.log(project, "Project");
 
   const handleSlideChnage = (swiper) => {
     const currentIndex = swiper.activeIndex;
@@ -72,15 +77,16 @@ const Work = () => {
                     {project?.num}
                   </div>
                   <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                    {project?.title} Project
+                    {project?.title
+                      ? `${t(project.title)} ${t("General.project")}`
+                      : ""}
                   </h2>
                   <p className="font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                    category: {project?.category}
+                    {project?.category
+                      ? `${t("General.category")}: ${t(project?.category)}`
+                      : ""}
                   </p>
-                  <div
-                    className="text-white/60"
-                    dangerouslySetInnerHTML={{ __html: project?.description }}
-                  />
+                  <p className="text-white/60">{t(project?.description)}</p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project?.stack?.map((items, index) => {
                       return (
@@ -100,7 +106,7 @@ const Work = () => {
                             <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Live Project</p>
+                            <p>{t("General.liveProject")}</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>

@@ -15,8 +15,10 @@ import ImageMe from "@/assets/img/me.jpg";
 // Service
 import { title } from "@/service/home";
 import { stats } from "@/service/stats";
+import { useLocale } from "@/message/localProvider";
 
 export default function Home() {
+  const { locale, t } = useLocale();
   // Query
   const titleHome = useQuery({
     queryKey: ["title"],
@@ -24,7 +26,7 @@ export default function Home() {
   });
 
   const statsHome = useQuery({
-    queryKey: ["stats"],
+    queryKey: ["stats", locale],
     queryFn: stats,
   });
 
@@ -39,17 +41,16 @@ export default function Home() {
                 {titleHome?.data?.data?.position || "-"}
               </span>
               <h1 className="h1">
-                Hello Im <br />
+                {t("Home.greetings")} <br />
                 <span className="text-accent">
                   {titleHome?.data?.data?.name || "-"}
                 </span>
               </h1>
               <p className="max-w-[500px] mb-9 text-white/80">
-                {titleHome?.data?.data?.position || "-"}
+                {titleHome?.data?.data?.description || "-"}
               </p>
 
               {/* Btn Social Media */}
-
               <div className="flex flex-col lg:flex-row items-center gap-8">
                 <a
                   href="/CV_Teddy.pdf"
@@ -62,7 +63,7 @@ export default function Home() {
                     size="lg"
                     className="uppercase flex items-center gap-2"
                   >
-                    <span>Download CV</span>
+                    <span>{t("Home.download")}</span>
                     <FiDownload className="text-xl" />
                   </Button>
                 </a>

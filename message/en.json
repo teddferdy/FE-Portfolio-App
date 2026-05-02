@@ -1,0 +1,174 @@
+{
+  "General": {
+    "name": "Name",
+    "phone": "Phone Number",
+    "experience": "Pengalaman",
+    "nationality": "Nationality",
+    "email": "Email",
+    "address": "Alamat",
+    "freelance": "Freelance",
+    "languages": "Languages",
+    "available": "Available",
+    "notAvailable": "Not Available",
+    "years": "Years",
+    "month": "Month",
+    "present": "Present",
+    "category": "Category",
+    "liveProject": "Live Project",
+    "project": "Project",
+    "note": "Noted",
+    "clickImage": "Click Image To Zoom Image",
+    "emptyData": "No data available",
+    "success": "Sukses",
+    "myAddress": "Sanggrahan, Grogol, Sukoharjo, Central Java"
+  },
+  "Month": {
+    "jan": "January",
+    "feb": "February",
+    "mar": "March",
+    "apr": "April",
+    "may": "May",
+    "jun": "June",
+    "jul": "July",
+    "aug": "August",
+    "sep": "September",
+    "oct": "October",
+    "nov": "November",
+    "dec": "December"
+  },
+  "Header": {
+    "home": "Home",
+    "service": "Service",
+    "resume": "Resume",
+    "work": "Work",
+    "certificate": "Certificate",
+    "contact": "Contact"
+  },
+  "Home": {
+    "greetings": "Hello, I'm",
+    "download": "Download CV",
+    "experience": "Years Experience",
+    "project": "Project Completed",
+    "technology": "Technology Mastered"
+  },
+  "Service": {
+    "feDeveloper": "FE Developer",
+    "descFeDeveloper": "Specialized in building fast, responsive, and user-friendly interfaces using modern technologies such as React.js, Next.js, and Tailwind CSS.",
+    "beDeveloper": "BE Developer",
+    "descBeDEveloper": "Experienced in developing secure and scalable server logic, API integrations, and database management using Node.js, Express.js, PostgreSQL, or MongoDB.",
+    "wordPressDeveloper": "Wordpress Developer",
+    "descWordPressDeveloper": "Creating and managing WordPress-based websites, including theme customization, plugin development, performance optimization, and SEO configuration."
+  },
+  "Resume": {
+    "experience": {
+      "title": "Experience",
+      "description": "My professional journey in developing various digital projects, building efficient solutions, and delivering real impact for businesses."
+    },
+    "educeation": {
+      "title": "Education",
+      "description": "My educational background that forms the foundation of my knowledge and skills in technology and software development.",
+      "college": {
+        "institution": "Akademi Teknologi Warga Surakarta",
+        "degree": "Diploma of Engineering, Major In Mechanical Engineering"
+      },
+      "glintsBootcamp": {
+        "institution": "Glints Academy",
+        "degree": "Front-end Developer Bootcamp"
+      }
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "A combination of technical and non-technical skills that I leverage to build high-quality, scalable, and user-friendly digital products."
+    },
+    "aboutMe": {
+      "title": "About Me",
+      "description": "I am a developer focused on building modern applications with high performance and excellent user experience, while continuously learning and adapting to new technologies."
+    }
+  },
+  "Project": {
+    "fitnessProject": {
+      "title": "Fitness Web App",
+      "category": "Web Development (Frontend Developer)",
+      "description": "Developed a responsive fitness application using React.js, focusing on performance, reusable components, and user-friendly interface."
+    },
+    "movieProject": {
+      "title": "Movie Review App",
+      "category": "Web Development (Frontend Developer)",
+      "description": "Built a movie review platform using React.js with dynamic data rendering and interactive UI features."
+    },
+    "pokemonProject": {
+      "title": "Pokémon Web App",
+      "category": "Web Development (Frontend Developer)",
+      "description": "Created a Pokémon web application using React.js with API integration and optimized state management."
+    },
+    "posAppFe": {
+      "title": "Point of Sale (POS) - Frontend",
+      "category": "Web Development (Fullstack Developer)",
+      "description": "Developed the frontend of a POS system using Next.js, ensuring scalability, performance, and seamless user experience."
+    },
+    "portfolioAppFe": {
+      "title": "Portfolio Website - Frontend",
+      "category": "Web Development (Fullstack Developer)",
+      "description": "Designed and developed a modern portfolio website using Next.js with optimized performance and clean UI."
+    },
+    "posAppBe": {
+      "title": "Point of Sale (POS) - Backend",
+      "category": "Web Development (Fullstack Developer)",
+      "description": "Built scalable backend services for a POS system using Express.js, including API development and database integration."
+    },
+    "portfolioAppBe": {
+      "title": "Portfolio Website - Backend",
+      "category": "Web Development (Fullstack Developer)",
+      "description": "Developed backend APIs for portfolio applications using Express.js with efficient data handling."
+    },
+    "yaoYao": {
+      "title": "Yao Yao Website",
+      "category": "WordPress Development (Elementor)",
+      "description": "Developed a company profile website using WordPress and Elementor with responsive design and SEO optimization."
+    },
+    "premiumInterindo": {
+      "title": "Premium Interindo Website",
+      "category": "WordPress Development (Elementor)",
+      "description": "Built a corporate website using WordPress with a focus on performance, responsiveness, and branding consistency."
+    },
+    "biSinergi": {
+      "title": "Bi-Sinergi Website",
+      "category": "WordPress Development (Elementor)",
+      "description": "Created a professional website using WordPress with optimized layout and user experience."
+    },
+    "sanex": {
+      "title": "Sanex Website",
+      "category": "WordPress Development (Elementor)",
+      "description": "Developed a responsive WordPress website with clean design and optimized performance."
+    }
+  },
+  "Ceritificate": {
+    "title": "Certificates",
+    "description": "Certificates I have earned as a reflection of my commitment to improving my skills, keeping up with technology trends, and continuously growing as a developer."
+  },
+  "Contact": {
+    "title": "Mari Bekerja Sama",
+    "firstName": "First Name",
+    "placeHolderFirstName": "Enter Your First Name",
+    "lastName": "Last Name",
+    "placeHolderLastName": "Enter Your Last Name",
+    "email": "Email",
+    "placeHolderEmail": "Enter Your Email",
+    "phoneNumber": "Phone Number / WA Number",
+    "placeHolderPhoneNumber": "Enter Your Phone Number",
+    "Service": "Service",
+    "placeHolderService": "Select Service",
+    "message": "Message",
+    "placeholderMessage": "Enter Your Message",
+    "buttonSend": "Send Message",
+
+    "errorFirstName": "Enter a First Name with at least 2 characters.",
+    "errorLastName": "Enter a Last name with at least 2 characters.",
+    "errorEmail": "Enter a valid email.",
+    "errorDescrition": "Enter a description with at least 2 characters.",
+    "errorPhoneNumber": "Enter a Phone Number at least 4 characters.",
+    "errorService": "Select at least one Service.",
+    "successSentEmail": "Sukses Email Sudah Terkirim",
+    "errorSentEmail": "Uh oh! Something went wrong."
+  }
+}

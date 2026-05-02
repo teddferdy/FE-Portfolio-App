@@ -26,10 +26,12 @@ import WorkSlideBtn from "@/components/WorkSlideBtn";
 
 import { getProjectByCategory } from "@/service/work";
 import EmptyData from "@/components/EmptyData";
+import { useLocale } from "@/message/localProvider";
 
 const Work = () => {
   const params = useParams();
   const { id } = params;
+  const { t } = useLocale();
 
   console.log("params =>", params);
 
@@ -40,6 +42,7 @@ const Work = () => {
   });
 
   const [project, setProject] = useState({});
+  console.log(project);
 
   const handleSlideChnage = (swiper) => {
     const currentIndex = swiper.activeIndex;
@@ -80,16 +83,17 @@ const Work = () => {
                     {project?.num}
                   </div>
                   <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                    {project?.title} Project
+                    {project?.title
+                      ? `${t(project.title)} ${t("General.project")}`
+                      : ""}
                   </h2>
                   <p className="font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                    category: {project?.category}
+                    {project?.category
+                      ? `${t("General.category")}: ${t(project?.category)}`
+                      : ""}
                   </p>
-                  <div
-                    className="text-white/60"
-                    dangerouslySetInnerHTML={{ __html: project?.description }}
-                  />
-                  <ul className="flex gap-4">
+                  <p className="text-white/60">{t(project?.description)}</p>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project?.stack?.map((items, index) => {
                       return (
                         <li key={index} className="text-accent text-xl">
@@ -108,7 +112,7 @@ const Work = () => {
                             <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Live Project</p>
+                            <p>{t("General.liveProject")}</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
@@ -144,17 +148,15 @@ const Work = () => {
                   {getWorkData?.data?.map((items, index) => {
                     return (
                       <SwiperSlide key={index} className="w-full">
-                        <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20 rounded-lg">
-                          <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                        <div className="h-[460px] relative flex justify-center items-center bg-pink-50/20 rounded-lg overflow-hidden">
+                          <Image
+                            src={items.image || DummyImage}
+                            alt={items.title}
+                            fill
+                            className="object-fill"
+                          />
 
-                          <div className="h-[460px] relative flex justify-center items-center bg-pink-50/20 rounded-lg">
-                            <Image
-                              src={items.image || DummyImage}
-                              alt={items.title}
-                              fill
-                              className="object-fill"
-                            />
-                          </div>
+                          <div className="absolute inset-0 bg-black/10 z-10"></div>
                         </div>
                       </SwiperSlide>
                     );
