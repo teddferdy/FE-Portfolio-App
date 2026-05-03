@@ -1,12 +1,16 @@
 "use client";
-import { useLocale } from "@/message/localProvider";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { cn } from "@/lib/utils";
+import { useLocale } from "@/i18n/localProvider";
+
 const Nav = () => {
   const { t } = useLocale();
+  const pathName = usePathname();
 
-  const link = [
+  const links = [
     { name: t("Header.home"), path: "/" },
     { name: t("Header.service"), path: "/services" },
     { name: t("Header.resume"), path: "/resume" },
@@ -14,24 +18,22 @@ const Nav = () => {
     { name: t("Header.certificate"), path: "/certificate" },
     { name: t("Header.contact"), path: "/contact" },
   ];
-  const pathName = usePathname();
 
   return (
-    <div className="flex items-center gap-8">
-      {link?.map((items, index) => {
-        return (
-          <Link
-            href={items.path}
-            key={index}
-            className={`${
-              items.path === pathName && "text-accent border-b-2 border-accent"
-            } capitalize font-medium hover:text-accent transition-all`}
-          >
-            {items.name}
-          </Link>
-        );
-      })}
-    </div>
+    <nav className="flex items-center gap-8">
+      {links.map((item) => (
+        <Link
+          href={item.path}
+          key={item.path}
+          className={cn(
+            "capitalize font-medium hover:text-accent transition-all",
+            item.path === pathName && "text-accent border-b-2 border-accent",
+          )}
+        >
+          {item.name}
+        </Link>
+      ))}
+    </nav>
   );
 };
 

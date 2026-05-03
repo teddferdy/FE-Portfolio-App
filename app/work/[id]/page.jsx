@@ -2,81 +2,62 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import React, { Fragment, useEffect, useState } from "react";
-import Header from "@/components/Header";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { useParams } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 
-import DummyImage from "@/assets/img/dummy-Images.jpg";
-
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
-
+import Header from "@/components/Header";
+import WorkSlideBtn from "@/components/WorkSlideBtn";
+import EmptyData from "@/components/EmptyData";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
-import Link from "next/link";
-import Image from "next/image";
-
-import WorkSlideBtn from "@/components/WorkSlideBtn";
-
+import { useLocale } from "@/i18n/localProvider";
 import { getProjectByCategory } from "@/service/work";
-import EmptyData from "@/components/EmptyData";
-import { useLocale } from "@/message/localProvider";
+import DummyImage from "@/assets/img/dummy-Images.jpg";
 
-const Work = () => {
-  const params = useParams();
-  const { id } = params;
+const PAGE_TRANSITION = { delay: 2.4, duration: 0.4, ease: "easeInOut" };
+
+const WorkByCategory = () => {
+  const { id } = useParams();
   const { t } = useLocale();
 
-  console.log("params =>", params);
-
-  // Query
   const getWorkData = useQuery({
     queryKey: ["getProjectByCategory", id],
     queryFn: () => getProjectByCategory(id),
   });
 
   const [project, setProject] = useState({});
-  console.log(project);
 
-  const handleSlideChnage = (swiper) => {
-    const currentIndex = swiper.activeIndex;
-    setProject(getWorkData?.data[currentIndex]);
+  const handleSlideChange = (swiper) => {
+    setProject(getWorkData.data[swiper.activeIndex]);
   };
 
   useEffect(() => {
-    if (getWorkData?.data && getWorkData?.isSuccess) {
-      setProject(getWorkData?.data?.length > 0 ? getWorkData?.data[0] : {});
+    if (getWorkData.isSuccess && getWorkData.data?.length > 0) {
+      setProject(getWorkData.data[0]);
     }
-  }, [getWorkData.data, getWorkData?.isSuccess]);
-
-  console.log(getWorkData);
+  }, [getWorkData.data, getWorkData.isSuccess]);
 
   return (
-    <Fragment>
+    <>
       <Header />
       <motion.section
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-          transition: {
-            delay: 2.4,
-            duration: 0.4,
-            ease: "easeInOut",
-          },
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: PAGE_TRANSITION }}
         className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
       >
         <div className="container mx-auto">
-          {getWorkData?.data?.length > 0 ? (
+          {getWorkData.data?.length > 0 ? (
             <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+              {/* Left — Project Info */}
               <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
                 <div className="flex flex-col gap-[30px]">
                   <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
@@ -89,21 +70,22 @@ const Work = () => {
                   </h2>
                   <p className="font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
                     {project?.category
-                      ? `${t("General.category")}: ${t(project?.category)}`
+                      ? `${t("General.category")}: ${t(project.category)}`
                       : ""}
                   </p>
                   <p className="text-white/60">{t(project?.description)}</p>
+
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {project?.stack?.map((items, index) => {
-                      return (
-                        <li key={index} className="text-accent text-xl">
-                          {items}
-                          {index !== project?.stack?.length - 1 && ","}
-                        </li>
-                      );
-                    })}
+                    {project?.stack?.map((item, index) => (
+                      <li key={index} className="text-accent text-xl">
+                        {item}
+                        {index !== project.stack.length - 1 && ","}
+                      </li>
+                    ))}
                   </ul>
-                  <div className="border border-white/20"></div>
+
+                  <div className="border border-white/20" />
+
                   <div className="flex items-center gap-4">
                     <Link href={project?.projectLive || ""} target="_blank">
                       <TooltipProvider delayDuration={100}>
@@ -117,50 +99,46 @@ const Work = () => {
                         </Tooltip>
                       </TooltipProvider>
                     </Link>
-                    {project?.github
-                      ? project?.github?.map((items, index) => {
-                          return (
-                            <Link href={items.url || ""} key={index}>
-                              <TooltipProvider delayDuration={100}>
-                                <Tooltip>
-                                  <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                    <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    <p>Github Repo {items.name}</p>
-                                  </TooltipContent>
-                                </Tooltip>
-                              </TooltipProvider>
-                            </Link>
-                          );
-                        })
-                      : null}
+
+                    {project?.github?.map((item, index) => (
+                      <Link href={item.url || ""} key={index}>
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                              <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Github Repo {item.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
+
+              {/* Right — Swiper */}
               <div className="w-full xl:w-[50%]">
                 <Swiper
                   spaceBetween={30}
                   slidesPerView={1}
                   className="xl:h-[520px] mb-12"
-                  onSlideChange={handleSlideChnage}
+                  onSlideChange={handleSlideChange}
                 >
-                  {getWorkData?.data?.map((items, index) => {
-                    return (
-                      <SwiperSlide key={index} className="w-full">
-                        <div className="h-[460px] relative flex justify-center items-center bg-pink-50/20 rounded-lg overflow-hidden">
-                          <Image
-                            src={items.image || DummyImage}
-                            alt={items.title}
-                            fill
-                            className="object-fill"
-                          />
-
-                          <div className="absolute inset-0 bg-black/10 z-10"></div>
-                        </div>
-                      </SwiperSlide>
-                    );
-                  })}
+                  {getWorkData.data?.map((item, index) => (
+                    <SwiperSlide key={index} className="w-full">
+                      <div className="h-[460px] relative flex justify-center items-center bg-pink-50/20 rounded-lg overflow-hidden">
+                        <Image
+                          src={item.image || DummyImage}
+                          alt={item.title}
+                          fill
+                          className="object-fill"
+                        />
+                        <div className="absolute inset-0 bg-black/10 z-10" />
+                      </div>
+                    </SwiperSlide>
+                  ))}
                   <WorkSlideBtn
                     containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
                     btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all duration-500"
@@ -173,8 +151,8 @@ const Work = () => {
           )}
         </div>
       </motion.section>
-    </Fragment>
+    </>
   );
 };
 
-export default Work;
+export default WorkByCategory;

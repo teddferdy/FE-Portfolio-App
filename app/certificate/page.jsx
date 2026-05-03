@@ -12,7 +12,8 @@ import "react-medium-image-zoom/dist/styles.css";
 import { getListCertificate } from "@/service/certificate";
 import { Skeleton } from "@/components/ui/skeleton";
 import AbortController from "@/components/AbortController";
-import { useLocale } from "@/message/localProvider";
+import { useLocale } from "@/i18n/localProvider";
+
 const array = Array(8).fill(null);
 
 const Certificate = () => {
@@ -62,7 +63,6 @@ const Certificate = () => {
     ) {
       return (
         <div className="flex flex-col gap-[30px] text-center xl:text-left">
-          
           <h3 className="text-4xl font-bold">{t("Ceritificate.title")}</h3>
           <div className="flex flex-col">
             <p className="text-white/60 mx-auto xl:mx-0">
