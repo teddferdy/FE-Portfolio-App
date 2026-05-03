@@ -3,26 +3,29 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
+const variants = {
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -16 },
+};
+
+const PAGE_TRANSITION = { duration: 0.35, ease: "easeInOut" };
+
 const PageTransition = ({ children }) => {
   const pathName = usePathname();
 
   return (
-    <AnimatePresence>
-      <div key={pathName}>
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{
-            opacity: 0,
-            transition: {
-              delay: 1,
-              duration: 0.4,
-              ease: "easeInOut",
-            },
-          }}
-          className="h-screen w-screen fixed bg-primary top-0 pointer-events-none"
-        />
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={pathName}
+        variants={variants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={PAGE_TRANSITION}
+      >
         {children}
-      </div>
+      </motion.div>
     </AnimatePresence>
   );
 };

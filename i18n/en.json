@@ -46,6 +46,7 @@
   },
   "Home": {
     "greetings": "Hello, I'm",
+    "description": "Frontend Developer with fullstack experience, focused on building scalable and high-performance web and mobile applications. Proficient in React.js, React Native, and Next.js, with a track record of delivering production-ready solutions across various domains, including the banking industry.",
     "download": "Download CV",
     "experience": "Years Experience",
     "project": "Project Completed",
@@ -64,7 +65,7 @@
       "title": "Experience",
       "description": "My professional journey in developing various digital projects, building efficient solutions, and delivering real impact for businesses."
     },
-    "educeation": {
+    "education": {
       "title": "Education",
       "description": "My educational background that forms the foundation of my knowledge and skills in technology and software development.",
       "college": {

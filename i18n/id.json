@@ -47,6 +47,7 @@
 
   "Home": {
     "greetings": "Halo, Saya",
+    "description": "Frontend Developer dengan pengalaman fullstack, fokus membangun aplikasi web dan mobile yang skalabel dan berperforma tinggi. Mahir dalam React.js, React Native, dan Next.js, dengan rekam jejak menghadirkan solusi siap produksi di berbagai domain, termasuk industri perbankan.",
     "download": "Unduh CV",
     "experience": "Tahun Pengalaman",
     "project": "Proyek Selesai",
@@ -65,7 +66,7 @@
       "title": "Pengalaman",
       "description": "Perjalanan karier saya dalam mengembangkan berbagai proyek digital, membangun solusi yang efisien, dan memberikan dampak nyata bagi bisnis."
     },
-    "educeation": {
+    "education": {
       "title": "Pendidikan",
       "description": "Latar belakang pendidikan yang membentuk dasar pengetahuan dan kemampuan saya dalam dunia teknologi dan pengembangan perangkat lunak.",
       "college": {

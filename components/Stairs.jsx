@@ -1,26 +1,21 @@
 import { motion } from "framer-motion";
 
+const TOTAL_STEPS = 6;
+
+const STAIR_TRANSITION = { duration: 0.4, ease: "easeInOut" };
+
 const stairAnimation = {
-  initial: {
-    top: "0%",
-  },
-  animate: {
-    top: "100%",
-  },
-  exit: {
-    top: ["100%", "0%"],
-  },
+  initial: { top: "0%" },
+  animate: { top: "100%" },
+  exit: { top: ["100%", "0%"] },
 };
 
-const reverseIndex = (index) => {
-  const totalSteps = 6;
-  return totalSteps - index - 1;
-};
+const reverseIndex = (index) => TOTAL_STEPS - index - 1;
 
 const Stairs = () => {
   return (
     <>
-      {[...Array(6).fill(null)].map((_, index) => (
+      {[...Array(TOTAL_STEPS)].map((_, index) => (
         <motion.div
           key={index}
           variants={stairAnimation}
@@ -28,8 +23,7 @@ const Stairs = () => {
           animate="animate"
           exit="exit"
           transition={{
-            duration: 0.4,
-            ease: "easeInOut",
+            ...STAIR_TRANSITION,
             delay: reverseIndex(index) * 0.1,
           }}
           className="h-full w-full bg-white relative"
